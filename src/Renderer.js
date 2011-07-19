@@ -3,7 +3,7 @@ JPE.declare('Renderer', {
 		this._items = {};
 		this._delegates = {};
 	},
-	registerMap:function(type, itemCls, delegate){
+	registerDelegate:function(type, itemCls, delegate){
 		this._items[type] = itemCls;
 		this._delegates[type] = delegate;
 	},
@@ -31,7 +31,7 @@ JPE.declare('Renderer', {
 		var rd = item.get('renderDelegate');
 		if(rd == undefined){
 			rd = this.findDelegateByParticle(item)
-			item.set('delegateClass', rd);
+			item.set('renderDelegate', rd);
 		}
 		return rd;
 	},
